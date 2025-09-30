@@ -1,0 +1,198 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr minmax(400px, 500px);
+  gap: clamp(30px, 3vw, 40px);
+  align-items: start;
+}
+
+.buttonSchedule {
+  background-color: var(--card-color-first);
+  color: var(--text-color-constant);
+  white-space: nowrap;
+}
+
+.buttonSchedule:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--card-color-first) 85%,
+    transparent
+  );
+}
+
+.buttonVideo {
+  color: var(--card-color-second);
+  border-color: initial;
+}
+
+.buttonVideo:hover {
+  background-color: var(--card-color-second);
+  color: var(--text-color-constant);
+  border-color: transparent;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: currentcolor;
+  flex-shrink: 0;
+}
+
+.mainEnd {
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(20px, 3vw, 30px);
+  animation: fade-in 0.6s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.mainEnd img {
+  width: 100%;
+  max-width: clamp(300px, 60vw, 450px);
+  height: auto;
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  object-fit: cover;
+  object-position: top;
+  max-height: min(500px, 60vh);
+  box-shadow: 0 10px 25px var(--image-shadow);
+}
+
+.mainStart {
+  min-width: 0;
+  padding: clamp(25px, 4vw, 35px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(20px, 2.5vw, 25px);
+  animation: fade-in 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.achievements {
+  display: flex;
+  justify-content: space-between;
+  gap: clamp(10px, 2vw, 20px);
+  flex-wrap: nowrap;
+  max-width: min(100%, 400px);
+}
+
+.title {
+  color: var(--text-title-color);
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.mainText {
+  color: var(--accent-text);
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 1.5;
+}
+
+.numbers {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.buttonList {
+  display: flex;
+  gap: clamp(15px, 3vw, 25px);
+  flex-wrap: wrap;
+}
+
+.colorFirst {
+  color: var(--card-color-first);
+}
+
+.colorSecond {
+  color: var(--card-color-second);
+}
+
+.colorThird {
+  color: var(--card-color-third);
+}
+
+@media (width >=1440px) {
+  .content {
+    gap: 40px;
+    grid-template-columns: 1fr minmax(450px, 500px);
+  }
+}
+
+@media (width <=1280px) {
+  .content {
+    grid-template-columns: 1fr minmax(380px, 450px);
+    gap: clamp(25px, 2.5vw, 35px);
+  }
+}
+
+@media (width <=1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mainEnd {
+    order: -1;
+    justify-self: center;
+    width: min(100%, 500px);
+  }
+
+  .mainEnd img {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (width <=768px) {
+  .content {
+    gap: 30px;
+  }
+
+  .mainStart {
+    padding: 20px;
+    gap: clamp(15px, 2vw, 20px);
+  }
+
+  .mainEnd {
+    padding: 15px;
+  }
+
+  .mainEnd img {
+    max-height: 500px;
+    box-shadow: 0 5px 20px var(--image-shadow);
+  }
+}
+
+@media (width <=480px) {
+  .content {
+    gap: 25px;
+  }
+
+  .mainStart {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  .mainEnd {
+    padding: 10px;
+  }
+
+  .mainEnd img {
+    max-height: 400px;
+  }
+}
+
+/* Анимации */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

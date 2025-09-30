@@ -1,0 +1,27 @@
+.social {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonList {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.button {
+  padding: 0.55rem;
+  background-color: var(--social-background-color);
+}
+
+.button:hover {
+  background-color: var(--card-color-first);
+}
+
+.icon {
+  width: 30px;
+  color: var(--text-color);
+}
+
+.button:hover .icon {
+  color: var(--text-color-constant);
+}

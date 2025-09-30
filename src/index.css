@@ -1,0 +1,162 @@
+@font-face {
+  font-family: Jost;
+  src:
+    url("/fonts/Jost-Variable.woff2") format("woff2 supports variations"),
+    url("/fonts/Jost-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src:
+    url("/fonts/Roboto-Variable.woff2") format("woff2 supports variations"),
+    url("/fonts/Roboto-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src:
+    url("/fonts/OpenSans-Variable.woff2") format("woff2 supports variations"),
+    url("/fonts/OpenSans-Variable.woff2") format("woff2-variations");
+  font-weight: 300 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Inter;
+  src:
+    url("/fonts/Inter-Variable.woff2") format("woff2 supports variations"),
+    url("/fonts/Inter-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --font-main: "Roboto", sans-serif;
+  --font-heading: "Jost", sans-serif;
+  --font-card-name: "Open Sans", sans-serif;
+  --font-more-pictures: "Inter", sans-serif;
+  --background: #fffef7; /* цвет фона на всей странице */
+  --foreground: #2c1810; /* цвет фона основных элементов */
+  --card: #faf8f0; /* цвет фона карточек (немного отличается от фона страницы) */
+  --background-not-found: #adbfe3dc; /* цвет фона страницы 404 */
+  --text-title-color: #2c1810; /* цвет текста заголовков */
+  --text-color: #522716; /* цвет текста основной */
+  --accent-text: #603321;
+  --text-color-hover: #bf782c; /* цвет текста при наведении */
+  --text-color-active: #975106; /* активный пункт меню в шапке */
+  --button-theme-icon-hover: #f3f0f0; /* цвет фона кнопки выбора темы при наведении */
+  --button-background-profile-hover: #fae2c9; /* цвет фона кнопки профиля при наведении */
+  --card-color-first: #77777b;
+  --card-color-second: #089f7c;
+  --card-color-third: #bd6c16;
+  --text-color-constant: #f7f7e4;
+  --image-shadow: #808080;
+  --social-background-color: #e3e4ed8c;
+  --header-bg: #fffef7d3;
+}
+
+:root.dark {
+  --background: #363633;
+  --foreground: #c7aa9fea;
+  --card: #413d36;
+  --background-not-found: #032f80dc;
+  --text-title-color: #f2dbd1;
+  --text-color: #e7dfdb;
+  --accent-text: #b0b0ae;
+  --text-color-hover: #f0b77a;
+  --text-color-active: #e09544;
+  --button-theme-icon-hover: #4b4b47;
+  --button-background-profile-hover: #52524d;
+  --card-color-first: #112bf7;
+  --card-color-second: #089f7c;
+  --card-color-third: #da7c19;
+  --text-color-constant: #f7f7e4;
+  --image-shadow: #808080;
+  --social-background-color: #e3e4ed11;
+  --header-bg: #363633d3;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0 auto;
+  font-family: var(--font-main);
+  background-color: var(--background);
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: currentcolor;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 48px;
+  line-height: 1.25em;
+  letter-spacing: -0.011em;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 1.33em;
+  letter-spacing: -0.011em;
+  color: var(--text-title-color);
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 1.2em;
+  letter-spacing: -0.011em;
+}
+
+h4 {
+  font-size: 16px;
+  line-height: 1.5em;
+  letter-spacing: 0.02em;
+}
+
+button {
+  background-color: transparent;
+  padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  margin: 0;
+  cursor: pointer;
+  appearance: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  border: none;
+}
+

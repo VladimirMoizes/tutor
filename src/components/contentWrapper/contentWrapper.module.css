@@ -1,0 +1,51 @@
+.content {
+  width: 100%;
+  max-width: min(1400px, 95vw);
+  margin: 0 auto;
+  padding: 40px clamp(20px, 5vw, 60px);
+  box-sizing: border-box;
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+@media (width >=1440px) {
+  .content {
+    max-width: 1400px;
+  }
+}
+
+@media (width <=1024px) {
+  .content {
+    max-width: min(800px, 90vw);
+  }
+}
+
+@media (width <=768px) {
+  .content {
+    padding: 0 clamp(15px, 4vw, 25px);
+    margin: 30px auto;
+  }
+}
+
+@media (width <=480px) {
+  .content {
+    padding: 0 12px;
+    margin: 20px auto;
+  }
+}
+
+/* Анимации */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

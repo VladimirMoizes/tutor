@@ -1,0 +1,28 @@
+.button {
+  padding: 0.55rem 1.2rem;
+  border-radius: 0.75rem;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 40px;
+  gap: 15px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.button:disabled:hover {
+  transform: none;
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+  transition-duration: 0.1s;
+}

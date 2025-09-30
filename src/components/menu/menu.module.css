@@ -1,0 +1,227 @@
+/* Десктопное меню */
+.desktopMenu {
+  display: flex;
+  gap: clamp(12px, 1.5vw, 20px);
+  align-items: center;
+}
+
+.link {
+  color: var(--text-title-color);
+  transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  padding: clamp(6px, 0.8vw, 8px) clamp(10px, 1.2vw, 12px);
+  border-radius: 8px;
+  white-space: nowrap;
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+}
+
+.link:hover {
+  color: var(--text-color-hover);
+  background-color: var(--card);
+  transform: translateY(-1px);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--text-color-active);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.link:hover::after {
+  width: 80%;
+}
+
+.active {
+  color: var(--text-color-active);
+  background-color: var(--card);
+  pointer-events: none;
+}
+
+.active::after {
+  width: 80%;
+}
+
+/* Мобильное меню */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgb(0 0 0 / 50%);
+  z-index: 1100; /* выше header (1000) */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  /* блокировка жестов на самом оверлее */
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+
+.overlayVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0; /* фикс у правого края */
+  width: min(320px, 85vw);
+  height: 100dvh; /* лучше для мобильных */
+  background: var(--background);
+  z-index: 1200; /* выше оверлея */
+  transform: translateX(100%); /* спрятано за экраном */
+  transition: transform 0.3s ease;
+  box-shadow: -4px 0 20px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.mobileMenuOpen {
+  transform: translateX(0);
+}
+
+.mobileMenuContent {
+  padding: 80px 20px 40px;
+  height: 100%;
+  position: relative;
+  overflow-y: auto;
+}
+
+.menuTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-title-color);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobileLink {
+  color: var(--text-title-color);
+  text-decoration: none;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: var(--card);
+  border: 1px solid var(--border-color);
+  animation: slide-in-right 0.3s ease forwards;
+  animation-delay: calc(var(--index, 0) * 0.1s);
+}
+
+.mobileLink:hover {
+  background: var(--button-background-profile-hover);
+  transform: translateX(5px);
+  color: var(--text-color-active);
+}
+
+.mobileActive {
+  background: var(--card-color-first);
+  color: var(--text-color-constant);
+  border-color: var(--card-color-first);
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  text-align: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  color: var(--text-title-color);
+}
+
+.closeButton:hover {
+  background-color: var(--card);
+  transform: rotate(90deg) scale(0.9);
+}
+
+.closeIcon {
+  width: 30px;
+  height: 30px;
+  color: var(--text-color);
+}
+
+/* Адаптивность десктопного меню */
+@media (width <=1150px) {
+  .desktopMenu {
+    gap: clamp(10px, 1.2vw, 15px);
+  }
+
+  .link {
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+    padding: clamp(5px, 0.7vw, 7px) clamp(8px, 1vw, 10px);
+  }
+}
+
+@media (width <=1024px) {
+  .desktopMenu {
+    display: none;
+  }
+}
+
+/* Адаптивность мобильного меню */
+@media (width <=480px) {
+  .mobileMenu {
+    width: 100%;
+    right: -100%;
+  }
+
+  .mobileMenu.mobileMenuOpen {
+    right: 0;
+  }
+
+  .mobileMenuContent {
+    padding: 70px 15px 30px;
+  }
+
+  .menuTitle {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+  }
+
+  .mobileLink {
+    padding: 14px 18px;
+    font-size: 1rem;
+  }
+
+  .closeButton {
+    top: 15px;
+    right: 15px;
+  }
+}
+
+/* Анимации */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

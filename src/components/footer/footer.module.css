@@ -1,0 +1,94 @@
+.footer {
+  width: 100%;
+  border-top: 1px solid var(--text-color-hover);
+  background: var(--background);
+  box-sizing: border-box;
+}
+
+.footerWrapper {
+  max-width: min(1400px, 100%);
+  margin: 0 auto;
+  width: 100%;
+  padding: clamp(15px, 3vw, 25px) clamp(20px, 5vw, 70px);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  min-width: 0;
+}
+
+.footerBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.blockTitle {
+  color: var(--text-title-color);
+}
+
+.footerLogo {
+  display: flex;
+  gap: clamp(8px, 1.5vw, 15px);
+  min-width: 0;
+  flex-shrink: 1;
+}
+
+.buttonLogo {
+  background-color: var(--card-color-first);
+  border-radius: 5px;
+  height: clamp(40px, 8vw, 50px);
+  width: clamp(40px, 8vw, 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.buttonLogo:hover {
+  background-color: var(--image-shadow);
+}
+
+.imageCalc {
+  width: clamp(25px, 5vw, 30px);
+  height: clamp(25px, 5vw, 30px);
+  object-fit: contain;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link {
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--text-color-hover);
+}
+
+.footerContacts {
+  gap: 0.5rem;
+}
+
+.footerContactItem {
+  gap: 0.5rem;
+}
+
+@media (width <= 768px) {
+  .footerWrapper {
+    padding: 12px 20px;
+  }
+}
+
+@media (width <= 480px) {
+  .footerWrapper {
+    padding: 10px 15px;
+  }
+}

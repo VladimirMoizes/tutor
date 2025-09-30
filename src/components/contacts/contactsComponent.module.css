@@ -1,0 +1,24 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+}
+
+.contactIcon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--card-color-first);
+  flex-shrink: 0;
+}
+
+.contactLink {
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover {
+  color: var(--text-color-hover);
+}

@@ -1,0 +1,118 @@
+.wrapper {
+  min-block-size: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background-color: var(--background-not-found);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-inline-size: 720px;
+  inline-size: 100%;
+  box-sizing: border-box;
+  padding: 2em 3em;
+  border: 2px solid black;
+  border-radius: 12px;
+  background-color: var(--card);
+  box-shadow: 5px 5px 5px var(--foreground);
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+  filter: blur(6px);
+  animation: card-enter 480ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: opacity, transform, filter;
+}
+
+@starting-style {
+  .main {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    filter: blur(6px);
+  }
+}
+
+@keyframes card-enter {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.main > * {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: child-in 420ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 120ms;
+}
+
+.main > *:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.main > *:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+.main > *:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+@keyframes child-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.main :where(img) {
+  display: block;
+  max-inline-size: 100%;
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 8px;
+}
+
+.image {
+  max-inline-size: 100%;
+  block-size: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: var(--foreground);
+  color: var(--card);
+}
+
+.button:hover {
+  background-color: var(--text-color-hover);
+}
+
+.mainTitle::after {
+  content: "";
+  display: inline-block;
+  inline-size: 1.25em;
+  aspect-ratio: 1 / 1;
+  margin-inline-start: 0.5em;
+  background-image: url("/images/not_found.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  vertical-align: middle;
+}
