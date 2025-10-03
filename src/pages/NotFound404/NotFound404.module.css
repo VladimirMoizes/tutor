@@ -93,9 +93,6 @@
 }
 
 .button {
-  padding: 0.75rem 1.25rem;
-  border-radius: 10px;
-  border: 1px solid transparent;
   background: var(--foreground);
   color: var(--card);
 }
@@ -115,4 +112,88 @@
   background-position: center;
   background-size: contain;
   vertical-align: middle;
+}
+
+@media (width <= 1024px) {
+  .wrapper {
+    padding: 20px;
+  }
+
+  .main {
+    max-inline-size: 600px;
+    padding: 1.75em 2.5em;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+}
+
+@media (width <= 768px) {
+  .wrapper {
+    padding: 16px;
+  }
+
+  .main {
+    max-inline-size: 500px;
+    padding: 1.5em 2em;
+    gap: 1.25rem;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+}
+
+@media (width <= 480px) {
+  .wrapper {
+    padding: 12px;
+  }
+
+  .main {
+    max-inline-size: 100%;
+    padding: 1.25em 1.5em;
+    gap: 1rem;
+    border-width: 1px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .mainTitle::after {
+    inline-size: 1em;
+    margin-inline-start: 0.25em;
+  }
+}
+
+@media (width <= 360px) {
+  .wrapper {
+    padding: 8px;
+  }
+
+  .main {
+    padding: 1em 1.25em;
+    gap: 0.875rem;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
 }

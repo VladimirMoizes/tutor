@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./NotFound404.module.css";
+import { Button } from "../../components/button/button";
 
 export const NotFound404 = () => {
   const navigate = useNavigate();
@@ -13,9 +14,9 @@ export const NotFound404 = () => {
         <h1>404 ERROR</h1>
         <h2 className={styles.mainTitle}>Страница не существует</h2>
         <img src="/images/not_found_image.webp" alt="Картинка кота" />
-        <button onClick={backToMain} className={styles.button}>
+        <Button onClick={backToMain} className={styles.button}>
           Вернуться на главную
-        </button>
+        </Button>
       </div>
     </div>
   );

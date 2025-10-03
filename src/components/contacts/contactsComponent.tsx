@@ -2,21 +2,6 @@ import styles from "./contactsComponent.module.css";
 import { contacts } from "../../constants/constants";
 import type { ReactNode } from "react";
 
-// export const ContactsComponent = () => {
-//   return (
-//     <div className={styles.contacts}>
-//       {contacts.map((contact) => (
-//         <div key={contact.label} className={styles.contactItem}>
-//           <span className={styles.contactIcon}>{contact.icon}</span>
-//           <a className={styles.contactLink} href={contact.href} target="_blank">
-//             <span>{contact.value}</span>
-//           </a>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
 interface ContactsComponentProps {
   className?: string;
   itemClassName?: string;

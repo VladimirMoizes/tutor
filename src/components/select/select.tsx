@@ -145,32 +145,3 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     );
   }
 );
-
-// export type TOptions = string[];
-
-// export type TSelectProps = {
-//   options: TOptions;
-//   name?: string;
-//   title: string;
-// };
-
-// export const Select = ({ options, name, title }: TSelectProps) => {
-//   return (
-//     <div>
-//       <label htmlFor={name}>
-//         <select>
-//           <option value="">{title}</option>
-//           <optgroup>
-//             {options.map((item) => {
-//               return (
-//                 <option key={item} value={item}>
-//                   {item}
-//                 </option>
-//               );
-//             })}
-//           </optgroup>
-//         </select>
-//       </label>
-//     </div>
-//   );
-// };

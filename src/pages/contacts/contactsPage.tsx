@@ -8,15 +8,14 @@ import { Select } from "../../components/select/select";
 import { type FormEvent } from "react";
 import { Button } from "../../components/button/button";
 import clsx from "clsx";
+import { optionSubjects } from "../../constants/constants";
 
-const optionSubjects = ["математика", "физика", "информатика"];
 let optionClasses = Array.from({ length: 11 }, (_, i) => i + 1);
 
 export const ContactsPage = () => {
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
   };
-
 
   return (
     <ContentWrapper className={styles.contentContactsPage}>
