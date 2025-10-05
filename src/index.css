@@ -57,6 +57,7 @@
   --image-shadow: #808080;
   --social-background-color: #e3e4ed8c;
   --header-bg: #fffef7d3;
+  --overlay-bg: #8e8e8e99;
 }
 
 :root.dark {
@@ -78,6 +79,7 @@
   --image-shadow: #808080;
   --social-background-color: #e3e4ed11;
   --header-bg: #363633d3;
+  --overlay-bg: #8e8e8e99;
 }
 
 *,
@@ -90,6 +92,7 @@
 
 html {
   overflow-x: hidden;
+  scrollbar-width: none;
 }
 
 body {
@@ -160,3 +163,8 @@ button {
   border: none;
 }
 
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
