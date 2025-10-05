@@ -1,5 +1,5 @@
 import type { TContacts, TMenuItem } from "../types/types";
-import { EmailIcon, MapIcon, PhoneIcon } from "../components/icons/icons";
+import { CalculatorIcon, CodeIcon, EmailIcon, LightningIcon, MapIcon, PhoneIcon } from "../components/icons/icons";
 
 export const menuItems: TMenuItem[] = [
   { to: "/", label: "Главная" },
@@ -35,6 +35,53 @@ export const contacts: TContacts = [
 ];
 
 export const optionSubjects = ["математика", "физика", "информатика"];
+
+export const subjectsSection = [
+  {
+    id: 1,
+    icon: <CalculatorIcon />,
+    title: "Математика",
+    description:
+      "Алгебра, геометрия, математический анализ, подготовка к ЕГЭ и олимпиадам",
+    list: [
+      "Решение уравнений и неравенств",
+      "Стереометрия и планиметрия",
+      "Функции и их свойства",
+      "Производные и интегралы",
+      "Подготовка к ЕГЭ (профиль)",
+    ],
+    price: "2500",
+  },
+  {
+    id: 2,
+    icon: <LightningIcon />,
+    title: "Физика",
+    description:
+      "Механика, термодинамика, электричество, оптика, квантовая физика",
+    list: [
+      "Кинематика и динамика",
+      "Электростатика и магнетизм",
+      "Молекулярная физика",
+      "Оптика и волны",
+      "Подготовка к ЕГЭ",
+    ],
+    price: "2500",
+  },
+  {
+    id: 3,
+    icon: <CodeIcon />,
+    title: "Информатика",
+    description: "Программирование, алгоритмы, базы данных, подготовка к ЕГЭ",
+    list: [
+      "Python, C++, Pascal",
+      "Алгоритмы и структуры данных",
+      "Логика и системы счисления",
+      "Базы данных и Excel",
+      "Подготовка к ЕГЭ",
+    ],
+    price: "2500",
+  },
+];
 
 export const aboutSections = [
   {

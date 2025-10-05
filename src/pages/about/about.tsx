@@ -7,25 +7,27 @@ export const About = () => {
     <ContentWrapper className={styles.content}>
       <h2>Обо мне</h2>
 
-      <div className={styles.about}>
+      <ul className={styles.about}>
         {aboutSections.map((item) => (
-          <article key={item.id} className={styles.themeBlock}>
-            <img
-              src={item.image}
-              alt={item.alt}
-              loading="lazy"
-              decoding="async"
-              className={styles.image}
-            />
-            <div className={styles.descriptionBlock}>
-              <h3 className={styles.title}>
-                {item.id}. {item.title}
-              </h3>
-              <p className={styles.text}> {item.text}</p>
-            </div>
-          </article>
+          <li key={item.id} className={styles.aboutItem}>
+            <article className={styles.themeBlock}>
+              <img
+                src={item.image}
+                alt={item.alt}
+                loading="lazy"
+                decoding="async"
+                className={styles.image}
+              />
+              <div className={styles.descriptionBlock}>
+                <h3 className={styles.title}>
+                  {item.id}. {item.title}
+                </h3>
+                <p className={styles.text}> {item.text}</p>
+              </div>
+            </article>
+          </li>
         ))}
-      </div>
+      </ul>
     </ContentWrapper>
   );
 };

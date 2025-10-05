@@ -20,24 +20,27 @@
   background-color: var(--card);
   border-radius: 1rem;
   box-shadow: 0 6px 12px var(--foreground);
+}
+
+.aboutItem {
   animation: fade-in 0.6s ease-out 0.4s forwards;
   opacity: 0;
   will-change: opacity;
 }
 
-.themeBlock:nth-child(1) {
+.aboutItem:nth-child(1) {
   animation-delay: 0.4s;
 }
 
-.themeBlock:nth-child(2) {
+.aboutItem:nth-child(2) {
   animation-delay: 0.5s;
 }
 
-.themeBlock:nth-child(3) {
+.aboutItem:nth-child(3) {
   animation-delay: 0.6s;
 }
 
-.themeBlock:nth-child(4) {
+.aboutItem:nth-child(4) {
   animation-delay: 0.7s;
 }
 

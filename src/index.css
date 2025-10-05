@@ -58,6 +58,7 @@
   --social-background-color: #e3e4ed8c;
   --header-bg: #fffef7d3;
   --overlay-bg: #8e8e8e99;
+  --plate-bg: #ded99660;
 }
 
 :root.dark {
@@ -80,6 +81,7 @@
   --social-background-color: #e3e4ed11;
   --header-bg: #363633d3;
   --overlay-bg: #8e8e8e99;
+  --plate-bg: #55555b60;
 }
 
 *,
@@ -167,4 +169,8 @@ body.modal-open {
   overflow: hidden;
   position: fixed;
   width: 100%;
+}
+
+li {
+  list-style: none;
 }
