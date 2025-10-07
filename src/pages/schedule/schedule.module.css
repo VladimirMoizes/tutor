@@ -1,4 +1,272 @@
-th,
-td {
-  border: 1px solid var(--foreground);
+.heading {
+  font-size: clamp(24px, 5vw, 36px);
+  font-weight: 700;
+  color: var(--text-title-color);
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: var(--font-heading);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  font-size: clamp(14px, 2vw, 16px);
+  background: var(--card);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--image-shadow);
+  font-family: var(--font-main);
+}
+
+.scheduleDescription {
+  text-align: center;
+}
+
+.table caption {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700;
+  color: var(--text-title-color);
+  margin-bottom: 25px;
+  text-align: center;
+  padding: 0 15px;
+  font-family: var(--font-heading);
+}
+
+.table th {
+  background: var(--foreground);
+  color: var(--text-color-constant);
+  font-weight: 600;
+  padding: clamp(12px, 2vw, 16px) clamp(8px, 1.5vw, 12px);
+  text-align: center;
+  border-right: 1px solid var(--foreground);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-heading);
+}
+
+.table th,
+.table td {
+  transition: all 0.3s ease;
+}
+
+.table th:first-child {
+  border-radius: 12px 0 0;
+}
+
+.table th:last-child {
+  border-radius: 0 12px 0 0;
+  border-right: none;
+}
+
+.table td {
+  padding: clamp(10px, 1.8vw, 14px) clamp(6px, 1.2vw, 10px);
+  border-bottom: 1px solid var(--foreground);
+  border-right: 1px solid var(--foreground);
+  text-align: center;
+  transition: all 0.2s ease;
+  position: relative;
+  color: var(--text-color);
+  font-family: var(--font-main);
+}
+
+.table td:last-child {
+  border-right: none;
+}
+
+.table td:first-child {
+  background-color: var(--background);
+  font-weight: 600;
+  color: var(--text-title-color);
+  border-right: 2px solid var(--foreground);
+}
+
+.table tbody tr {
+  animation: fade-in-row 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.table tbody tr:hover {
+  background-color: var(--button-background-profile-hover);
+}
+
+.table td:not(:first-child, :empty) {
+  background: var(--card-color-second);
+  color: var(--text-color-constant);
+  font-weight: 500;
+  border-radius: 6px;
+  margin: 2px;
+  box-shadow: 0 2px 4px var(--image-shadow);
+}
+
+.table td:empty {
+  background: transparent;
+  color: var(--accent-text);
+}
+
+.table td:focus {
+  outline: 2px solid var(--text-color-hover);
+  outline-offset: -2px;
+  z-index: 1;
+  position: relative;
+}
+
+.table tbody tr:hover td {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px var(--image-shadow);
+}
+
+.table td:not(:first-child):empty {
+  background-color: var(--plate-bg);
+}
+
+.legendBlock {
+  display: flex;
+  align-items: center;
+}
+
+.legend {
+  width: 100px;
+  height: 50px;
+  margin-right: 0.8rem;
+  display: inline-block;
+  border-radius: 0.6rem;
+}
+
+.legendBlock:first-of-type {
+  margin: 1rem 0;
+}
+
+.legendBlock:first-of-type .legend {
+  background-color: var(--card-color-second);
+}
+
+.legendBlock:nth-of-type(2) .legend {
+  background-color: var(--plate-bg);
+}
+
+.legendDescription {
+  margin-right: 2rem;
+  font-size: 1.4rem;
+}
+
+@media (width <= 1024px) {
+  .table {
+    font-size: clamp(13px, 1.8vw, 15px);
+    margin: 25px 0;
+  }
+
+  .table th,
+  .table td {
+    padding: clamp(10px, 1.5vw, 14px) clamp(6px, 1vw, 8px);
+  }
+}
+
+@media (width <= 768px) {
+  .table {
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .table caption {
+    font-size: clamp(18px, 5vw, 22px);
+    margin-bottom: 20px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px 6px;
+  }
+
+  .table th {
+    font-size: 13px;
+  }
+}
+
+@media (width <= 480px) {
+  .table {
+    font-size: 12px;
+    margin: 15px 0;
+  }
+
+  .table caption {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px 4px;
+  }
+
+  .table th {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .table td:first-child {
+    font-size: 11px;
+    font-weight: 700;
+  }
+}
+
+@media (width <= 360px) {
+  .tableContainer {
+    overflow-x: auto;
+    margin: 0 -12px;
+    padding: 0 12px;
+  }
+
+  .table {
+    min-width: 500px;
+  }
+}
+
+.table th::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.table tbody tr:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.table tbody tr:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.table tbody tr:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.table tbody tr:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.table tbody tr:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.table tbody tr:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.table tbody tr:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+@keyframes fade-in-row {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

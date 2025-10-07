@@ -6,7 +6,9 @@ export const Schedule = () => {
   return (
     <ContentWrapper>
       <h2 className={styles.heading}>Расписание</h2>
-      <p>На этой странице можно ознакомиться с уже занятым временем</p>
+      <p className={styles.scheduleDescription}>
+        На этой странице можно ознакомиться с уже занятым временем
+      </p>
       <div className={styles.tableContainer}>
         <table className={styles.table}>
           <caption>Расписание занятий</caption>
@@ -29,6 +31,16 @@ export const Schedule = () => {
             ))}
           </tbody>
         </table>
+      </div>
+      <div>
+        <div className={styles.legendBlock}>
+          <div className={styles.legend}></div>
+          <span className={styles.legendDescription}>- занято</span>
+        </div>
+        <div className={styles.legendBlock}>
+          <div className={styles.legend}></div>
+          <span className={styles.legendDescription}>- свободно</span>
+        </div>
       </div>
     </ContentWrapper>
   );
