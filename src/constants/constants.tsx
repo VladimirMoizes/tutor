@@ -1,5 +1,12 @@
 import type { TContacts, TMenuItem } from "../types/types";
-import { CalculatorIcon, CodeIcon, EmailIcon, LightningIcon, MapIcon, PhoneIcon } from "../components/icons/icons";
+import {
+  CalculatorIcon,
+  CodeIcon,
+  EmailIcon,
+  LightningIcon,
+  MapIcon,
+  PhoneIcon,
+} from "../components/icons/icons";
 
 export const menuItems: TMenuItem[] = [
   { to: "/", label: "Главная" },
@@ -113,3 +120,74 @@ export const aboutSections = [
     text: "Мое образование не ограничивается базовой специальностью. Я целенаправленно развиваюсь в двух, на первый взгляд, разных направлениях, что формирует системное мышление. Диплом «Специалиста в области управления проектами» в ракетно-космической отрасли научил меня работать со сложными задачами, где важны каждая деталь и строгий дедлайн. А профессиональная переподготовка в Яндекс Практикуме по программе «Фронтенд-разработчик» дала мне современные инструменты для создания цифровых продуктов. Этот сплав опыта позволяет мне решать задачи любой сложности — от стратегического планирования до технической реализации.",
   },
 ];
+
+interface Lesson {
+  [time: string]: string;
+}
+
+interface ScheduleDay {
+  day: string;
+  lessons: Lesson;
+}
+
+export const schedule: ScheduleDay[] = [
+  {
+    day: "понедельник",
+    lessons: {
+      "18:00": "Витя - математика",
+      "19:00": "Сергей - математика",
+    },
+  },
+  {
+    day: "вторник",
+    lessons: {
+      "16:00": "Варя - математика",
+      "17:00": "Мирон - математика",
+      "19:00": "Вова - математика",
+    },
+  },
+  {
+    day: "среда",
+    lessons: {
+      "16:00": "Лев - математика",
+      "17:00": "Олеся - математика",
+      "18:00": "Витя - математика",
+      "19:00": "Сергей - математика",
+    },
+  },
+  {
+    day: "четверг",
+    lessons: {
+      "16:00": "Варя - информатика",
+      "17:00": "Мирон - информатика",
+      "19:00": "Артемий - математика",
+    },
+  },
+  {
+    day: "пятница",
+    lessons: {
+      "16:00": "Лев - математика",
+      "17:00": "Маша - физика",
+    },
+  },
+  {
+    day: "суббота",
+    lessons: {
+      "11:30": "Тимофей - математика",
+    },
+  },
+  {
+    day: "воскресенье",
+    lessons: { "18:00": "Варя - информатика" },
+  },
+];
+
+const getAllUniqueTimes = (): string[] => {
+  const times = new Set<string>();
+  schedule.forEach((day) => {
+    Object.keys(day.lessons).forEach((time) => times.add(time));
+  });
+  return Array.from(times).sort();
+};
+
+export const timeSchedule = getAllUniqueTimes();
