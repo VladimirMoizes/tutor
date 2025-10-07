@@ -58,12 +58,12 @@
   grid-area: description;
 }
 
-.about article:nth-child(2n + 1) {
+.about .aboutItem:nth-child(2n + 1) article {
   grid-template-columns: 45% 1fr;
   grid-template-areas: "image description";
 }
 
-.about article:nth-child(2n) {
+.about .aboutItem:nth-child(2n) article {
   grid-template-columns: 1fr 45%;
   grid-template-areas: "description image";
 }
