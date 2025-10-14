@@ -191,3 +191,57 @@ const getAllUniqueTimes = (): string[] => {
 };
 
 export const timeSchedule = getAllUniqueTimes();
+
+export type Material = {
+  id: number;
+  subject: string;
+  image: string;
+  title: string;
+  description: string;
+  timeToRead: number;
+};
+
+export type Materials = Material[];
+
+export const materials: Materials = [
+  {
+    id: 1,
+    subject: "математика",
+    image: "images/math_proizv.jpg",
+    title: "Как решать задачи на производные",
+    description:
+      "Пошаговый алгоритм решения задач на нахождение производных функций",
+    timeToRead: 8,
+  },
+  {
+    id: 2,
+    subject: "физика",
+    image: "images/phys_kinem.jpg",
+    title: "Основы кинематики в физике",
+    description:
+      "Разбираем основные понятия и формулы кинематики с примерами задач",
+    timeToRead: 12,
+  },
+  {
+    id: 3,
+    subject: "информатика",
+    image: "images/inf_alg.png",
+    title: "Алгоритмы сортировки в JavaScript",
+    description:
+      "Сравнение различных алгоритмов сортировки и их реализация на JavaScript",
+    timeToRead: 15,
+  },
+];
+
+export const getSubjectClass = (subject: string): string => {
+  switch (subject?.toLowerCase()) {
+    case "физика":
+      return "physics";
+    case "математика":
+      return "math";
+    case "информатика":
+      return "informatics";
+    default:
+      return "default";
+  }
+};

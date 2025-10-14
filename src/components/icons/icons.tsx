@@ -190,20 +190,20 @@ export const CalculatorIcon = ({ className = "", ...props }) => (
   >
     {/* Корпус */}
     <rect x="3" y="2" width="18" height="20" rx="2" ry="2" />
-    
+
     {/* Экран */}
     <rect x="5" y="4" width="14" height="6" rx="1" ry="1" />
-    
+
     {/* Линии на экране (как цифры) */}
     <line x1="7" y1="6" x2="17" y2="6" strokeWidth="1.2" />
     <line x1="7" y1="8" x2="15" y2="8" strokeWidth="1.2" />
-    
+
     {/* Сетка кнопок - только линии */}
     <line x1="5" y1="12" x2="20" y2="12" strokeWidth="0.8" />
     <line x1="5" y1="15" x2="20" y2="15" strokeWidth="0.8" />
     <line x1="5" y1="18" x2="20" y2="18" strokeWidth="0.8" />
     <line x1="5" y1="21" x2="20" y2="21" strokeWidth="0.8" />
-    
+
     <line x1="8" y1="11" x2="8" y2="22" strokeWidth="0.8" />
     <line x1="12" y1="11" x2="12" y2="22" strokeWidth="0.8" />
     <line x1="16" y1="11" x2="16" y2="22" strokeWidth="0.8" />
@@ -239,17 +239,21 @@ export const CodeIcon = ({ className = "", ...props }) => (
   >
     {/* Левая скобка */}
     <path d="M9 7L4 12L9 17" />
-    
+
     {/* Правая скобка */}
     <path d="M15 7L20 12L15 17" />
-    
+
     {/* Центральный слэш */}
     <line x1="10" y1="14" x2="14" y2="10" />
   </svg>
 );
 
 // components/icons/MarkerIcon.tsx
-export const MarkerIcon = ({ className = "", color = "currentColor", ...props }) => (
+export const MarkerIcon = ({
+  className = "",
+  color = "currentColor",
+  ...props
+}) => (
   <svg
     className={className}
     viewBox="0 0 20 20"
@@ -258,12 +262,27 @@ export const MarkerIcon = ({ className = "", color = "currentColor", ...props })
     {...props}
   >
     <circle cx="10" cy="10" r="8" fill={color} />
-    <path 
-      d="M6 10L9 13L14 7" 
-      stroke="white" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
+    <path
+      d="M6 10L9 13L14 7"
+      stroke="white"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
+  </svg>
+);
+
+export const ClockIcon = ({ className = "" }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="9" />
+    <path d="M12 7V12L15 15" />
   </svg>
 );

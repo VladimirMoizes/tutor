@@ -1,3 +1,50 @@
+import Button from "../../components/button/button";
+import { ContentWrapper } from "../../components/contentWrapper/contentWrapper";
+import { BookIcon, ClockIcon } from "../../components/icons/icons";
+import { getSubjectClass, materials } from "../../constants/constants";
+import styles from "./materials.module.css";
+
 export const Materials = () => {
-    return <h2>Материалы</h2>
-}
+  return (
+    <ContentWrapper className={styles.materials}>
+      <h2>Материалы</h2>
+      <p className={styles.materialsDescription}>
+        Авторские статьи, задачники и методические пособия для изучения точных
+        наук
+      </p>
+      <ul className={styles.list}>
+        {materials.map((item) => (
+          <li key={item.id} className={styles.listItem}>
+            <article className={styles.card}>
+              <div
+                className={`${styles.plate} ${styles[getSubjectClass(item.subject)]}`}
+              >
+                {item.subject}
+              </div>
+              <img
+                className={styles.cardImage}
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+              />
+              <div className={styles.cardContent}>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDescription}>{item.description}</p>
+              </div>
+              <div className={styles.cardFooter}>
+                <span className={styles.timeToRead}>
+                  <ClockIcon className={styles.clockIcon} />
+                  {item.timeToRead} мин
+                </span>
+                <Button className={styles.button}>
+                  Читать
+                  <BookIcon className={styles.bookIcon} />
+                </Button>
+              </div>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </ContentWrapper>
+  );
+};
