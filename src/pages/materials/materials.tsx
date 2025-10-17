@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "../../components/button/button";
 import { ContentWrapper } from "../../components/contentWrapper/contentWrapper";
 import { BookIcon, ClockIcon } from "../../components/icons/icons";
@@ -5,6 +6,14 @@ import { getSubjectClass, materials } from "../../constants/constants";
 import styles from "./materials.module.css";
 
 export const Materials = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  const handleShowAll = () => {
+    setShowAll((prev) => !prev);
+  };
+
+  const showMaterials = showAll ? materials : materials.slice(0, 3);
+
   return (
     <ContentWrapper className={styles.materials}>
       <h2>Материалы</h2>
@@ -13,7 +22,7 @@ export const Materials = () => {
         наук
       </p>
       <ul className={styles.list}>
-        {materials.map((item) => (
+        {showMaterials.map((item) => (
           <li key={item.id} className={styles.listItem}>
             <article className={styles.card}>
               <div
@@ -34,7 +43,7 @@ export const Materials = () => {
               <div className={styles.cardFooter}>
                 <span className={styles.timeToRead}>
                   <ClockIcon className={styles.clockIcon} />
-                  {item.timeToRead} мин
+                  {item.timeToRead ? `${item.timeToRead} мин` : item.format}
                 </span>
                 <Button className={styles.button}>
                   Читать
@@ -45,6 +54,11 @@ export const Materials = () => {
           </li>
         ))}
       </ul>
+      {materials.length > 3 && (
+        <Button onClick={handleShowAll} className={styles.moreButton}>
+          {showAll ? "Скрыть" : "Показать ещё"}
+        </Button>
+      )}
     </ContentWrapper>
   );
 };

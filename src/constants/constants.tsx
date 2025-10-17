@@ -80,7 +80,7 @@ export const subjectsSection = [
     title: "Информатика",
     description: "Программирование, алгоритмы, базы данных, подготовка к ЕГЭ",
     list: [
-      "Python, C++, Pascal",
+      "JavaScript, Python, Pascal",
       "Алгоритмы и структуры данных",
       "Логика и системы счисления",
       "Базы данных и Excel",
@@ -198,7 +198,8 @@ export type Material = {
   image: string;
   title: string;
   description: string;
-  timeToRead: number;
+  timeToRead?: number;
+  format?: string;
 };
 
 export type Materials = Material[];
@@ -230,6 +231,31 @@ export const materials: Materials = [
     description:
       "Сравнение различных алгоритмов сортировки и их реализация на JavaScript",
     timeToRead: 15,
+  },
+  {
+    id: 4,
+    subject: "математика",
+    image: "images/math_zadach.webp",
+    title: "Задачник по алгебре - 10 класс",
+    description:
+      "Сборник задач с подробными решениями по алгебре для 10 класса",
+    format: "pdf",
+  },
+  {
+    id: 5,
+    subject: "физика",
+    image: "images/phys_electro.jpg",
+    title: "Электростатика: теория и практика",
+    description: "Полный курс по электростатике с примерами и задачами",
+    timeToRead: 20,
+  },
+  {
+    id: 6,
+    subject: "информатика",
+    image: "images/inf_OOP.png",
+    title: "Основы объектно-ориентированного программирования",
+    description: "Введение в ООП: классы, объекты, наследование, инкапсуляция",
+    timeToRead: 18,
   },
 ];
 

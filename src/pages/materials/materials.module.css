@@ -4,7 +4,6 @@
 }
 
 .materialsDescription {
-  margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -16,7 +15,7 @@
   gap: 2rem;
   justify-content: center;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 2rem auto;
   padding: 0;
   list-style: none;
 }
@@ -28,8 +27,8 @@
 .card {
   width: 100%;
   min-height: 500px;
-  border: 1px solid var(--foreground);
-  border-radius: 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 5px 5px var(--image-shadow);
   background: var(--card);
   padding: 1.5rem;
   display: flex;
@@ -143,6 +142,14 @@
   transform: scale(1.03);
 }
 
+.moreButton {
+  border: 1px solid var(--foreground);
+  border-radius: 0.5rem;
+  background-color: var(--plate-bg);
+  font-size: 1.33rem;
+  color: var(--text-color);
+}
+
 @media (width <= 1024px) {
   .list {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -226,7 +233,6 @@
     font-size: 0.9rem;
   }
 }
-
 
 @keyframes fade-in {
   from {
