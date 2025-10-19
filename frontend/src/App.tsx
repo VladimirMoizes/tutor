@@ -13,6 +13,7 @@ import { AppFooter } from "./components/footer/footer";
 import type { TTheme } from "./types/types";
 import { ContactsPage } from "./pages/contacts/contactsPage";
 import { ScrollToTop } from "./utils/utils";
+import { Auth } from "./pages/auth/auth";
 
 const App = () => {
   const theme: TTheme = useSelector(selectTheme);
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/materials" element={<Materials />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="/auth" element={<Auth />} />
       </Routes>
       <AppFooter />
     </>

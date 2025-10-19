@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Тест API</title>
+</head>
+<body>
+    <h2>Тестирование API регистрации</h2>
+    
+    <div>
+        <h3>Регистрация</h3>
+        <input type="text" id="firstName" placeholder="Имя" value="Иван"><br>
+        <input type="text" id="lastName" placeholder="Фамилия" value="Петров"><br>
+        <input type="email" id="email" placeholder="Email" value="ivan@example.com"><br>
+        <input type="password" id="password" placeholder="Пароль" value="123456"><br>
+        <button onclick="testRegister()">Тест регистрации</button>
+    </div>
+
+    <div id="result" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;"></div>
+
+    <script>
+        async function testRegister() {
+            const userData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                });
+                
+                const result = await response.json();
+                document.getElementById('result').innerHTML = 
+                    `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+            } catch (error) {
+                document.getElementById('result').innerHTML = 'Ошибка: ' + error;
+            }
+        }
+    </script>
+</body>
+</html>

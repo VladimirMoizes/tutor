@@ -5,9 +5,11 @@ import { selectTheme, toggleTheme } from "../../services/slices/themeSlice";
 import Button from "../button/button";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { BurgerIcon, MoonIcon, ProfileIcon, SunIcon } from "../icons/icons";
+import { NavLink, useLocation } from "react-router-dom";
 
 const AppHeader = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const theme = useSelector(selectTheme);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -26,9 +28,11 @@ const AppHeader = () => {
   const { themeIcon } = useMemo(
     () => ({
       themeIcon:
-        theme === "light"
-          ? <MoonIcon className={styles.themeIcon} />
-          : <SunIcon className={styles.themeIcon}/>,
+        theme === "light" ? (
+          <MoonIcon className={styles.themeIcon} />
+        ) : (
+          <SunIcon className={styles.themeIcon} />
+        ),
     }),
     [theme]
   );
@@ -97,10 +101,15 @@ const AppHeader = () => {
             {themeIcon}
           </button>
 
-          <Button className={styles.buttonProfile}>
-            <ProfileIcon className={styles.iconProfile}/>
-            <p>Личный кабинет</p>
-          </Button>
+          <NavLink to={"/auth"}>
+            <Button
+              disabled={location.pathname === "/auth"}
+              className={styles.buttonProfile}
+            >
+              <ProfileIcon className={styles.iconProfile} />
+              <p>Личный кабинет</p>
+            </Button>
+          </NavLink>
 
           {/* Кнопка бургер-меню */}
           <button

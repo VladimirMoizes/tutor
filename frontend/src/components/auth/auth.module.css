@@ -1,0 +1,102 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  text-align: start;
+  font-size: 1rem;
+  background: var(--card);
+  border: 1px solid var(--foreground);
+  border-radius: 16px;
+}
+
+.formTitle {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--text-title-color);
+}
+
+.form label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-title-color);
+  margin-bottom: 0.5rem;
+}
+
+.form [role="alert"] {
+  margin-top: 6px;
+  color: var(--text-color-active);
+  font-size: 0.9rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border-radius: 12px;
+  border: 1.5px solid var(--foreground);
+  background: var(--background);
+  color: var(--text-color);
+  padding: 10px 14px;
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.input:hover,
+.select:hover {
+  border-color: var(--text-color-hover);
+}
+
+.input:focus {
+  border-color: var(--text-color-active);
+  box-shadow: 0 0 0 3px
+    color-mix(in oklab, var(--text-color-active) 25%, transparent);
+}
+
+.form a {
+  color: var(--text-color-active);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.buttonList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.formButton {
+  white-space: nowrap;
+}
+
+.submitButton {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.resetButton {
+  background-color: var(--text-color-hover);
+  color: var(--card);
+}
+
+@media (width >= 640px) {
+  .buttonList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input,
+  .select,
+  .radio,
+  .field::after {
+    transition: none;
+  }
+}

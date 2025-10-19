@@ -15,11 +15,12 @@
 }
 
 .button:disabled {
-  cursor: not-allowed;
+  cursor: auto;
 }
 
 .button:disabled:hover {
   transform: none;
+  background-color: currentcolor;
 }
 
 .button:active:not(:disabled) {
