@@ -59,6 +59,8 @@
   --header-bg: #fffef7d3;
   --overlay-bg: #8e8e8e99;
   --plate-bg: #ded99660;
+  --button-bg-attention: #d32f2f;
+  --button-bg-attention-hover: #b71c1c;
 }
 
 :root.dark {
@@ -82,6 +84,8 @@
   --header-bg: #363633d3;
   --overlay-bg: #8e8e8e99;
   --plate-bg: #55555b60;
+  --button-bg-attention: #d32f2f;
+  --button-bg-attention-hover: #b71c1c;
 }
 
 *,

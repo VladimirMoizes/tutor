@@ -178,6 +178,18 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     }
   }
 
+  // const phoneProps =
+  //   mask === "phone"
+  //     ? {
+  //         value: phoneValue,
+  //         onChange: handlePhoneChange,
+  //         onKeyDown: handlePhoneKeyDown,
+  //         maxLength: 18 as number | undefined,
+  //         inputMode:
+  //           "tel" as React.HTMLAttributes<HTMLInputElement>["inputMode"],
+  //       }
+  //     : {};
+
   const phoneProps =
     mask === "phone"
       ? {
@@ -185,10 +197,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           onChange: handlePhoneChange,
           onKeyDown: handlePhoneKeyDown,
           maxLength: 18 as number | undefined,
-          inputMode:
-            "tel" as React.HTMLAttributes<HTMLInputElement>["inputMode"],
+          inputMode: "tel" as React.HTMLAttributes<HTMLInputElement>["inputMode"],
         }
-      : {};
+      : {
+          onChange: onChange, // ← ВАЖНО: передаём оригинальный onChange для обычных инпутов
+        };
 
   return (
     <div className={containerClassName}>

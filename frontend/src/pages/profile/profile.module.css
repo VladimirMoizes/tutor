@@ -1,0 +1,174 @@
+.profilePage {
+  text-align: center;
+}
+
+.description {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--card);
+  box-shadow: 5px 5px 5px var(--image-shadow);
+  border-radius: 0.8rem;
+  width: clamp(250px, 100%, 400px);
+  align-items: start;
+  text-align: start;
+}
+
+.profileData {
+  font-size: 1.2rem;
+}
+
+.buttonProfile {
+  align-self: center;
+  width: 70%;
+  color: var(--text-color-constant);
+}
+
+.buttonLogout {
+  background-color: var(--card-color-second);
+}
+
+.buttonEdit {
+  background-color: var(--card-color-first);
+}
+
+.buttonDelete {
+  background-color: var(--card-color-third);
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  text-align: start;
+  font-size: 1rem;
+  background: var(--card);
+  border: 1px solid var(--foreground);
+  border-radius: 16px;
+
+  /* opacity: 0; */
+}
+
+.formTitle {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: var(--text-title-color);
+}
+
+.form label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-title-color);
+  margin-bottom: 0.5rem;
+}
+
+.form [role="alert"] {
+  margin-top: 6px;
+  color: var(--text-color-active);
+  font-size: 0.9rem;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  border-radius: 12px;
+  border: 1.5px solid var(--foreground);
+  background: var(--background);
+  color: var(--text-color);
+  padding: 10px 14px;
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.inputDelete {
+  margin: 0.8rem 0;
+}
+
+.input:hover {
+  border-color: var(--text-color-hover);
+}
+
+.input:focus {
+  border-color: var(--text-color-active);
+  box-shadow: 0 0 0 3px
+    color-mix(in oklab, var(--text-color-active) 25%, transparent);
+}
+
+.formButton {
+  white-space: nowrap;
+}
+
+.submitButton {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+.resetButton {
+  background-color: var(--text-color-hover);
+  color: var(--card);
+}
+
+.buttonList {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.logoutModal {
+  text-align: center;
+}
+
+.logoutMessage {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.logoutConfirmButton {
+  background-color: var(--button-bg-attention);
+  color: var(--text-color-constant);
+}
+
+.logoutConfirmButton:hover {
+  background-color: var(--button-bg-attention-hover);
+}
+
+.deleteModal {
+  text-align: center;
+}
+
+.deleteWarning {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: var(--button-bg-attention);
+  font-weight: 500;
+}
+
+.deleteConfirmButton {
+  background-color: var(--button-bg-attention);
+  color: var(--text-color-constant);
+}
+
+.deleteConfirmButton:hover {
+  background-color: var(--button-bg-attention-hover);
+}
+
+@media (width <= 425px) {
+  .buttonProfile {
+    width: 100%;
+  }
+}

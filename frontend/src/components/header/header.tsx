@@ -6,12 +6,17 @@ import Button from "../button/button";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { BurgerIcon, MoonIcon, ProfileIcon, SunIcon } from "../icons/icons";
 import { NavLink, useLocation } from "react-router-dom";
+import { getUserSelectors } from "../../services/slices/userSlice";
 
 const AppHeader = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const theme = useSelector(selectTheme);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const userData = useSelector(getUserSelectors).data;
+  const userName = userData ? userData.firstName : null;
+
 
   const handleThemeToggle = useCallback(() => {
     dispatch(toggleTheme());
@@ -101,7 +106,7 @@ const AppHeader = () => {
             {themeIcon}
           </button>
 
-          <NavLink to={"/auth"}>
+          <NavLink to={!userName ? "/auth" : "/profile"}>
             <Button
               disabled={location.pathname === "/auth"}
               className={styles.buttonProfile}
