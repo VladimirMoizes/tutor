@@ -20,7 +20,7 @@
 
 .button:disabled:hover {
   transform: none;
-  background-color: currentcolor;
+  background-color: inherit;
 }
 
 .button:active:not(:disabled) {
