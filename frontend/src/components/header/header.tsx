@@ -112,7 +112,7 @@ const AppHeader = () => {
               className={styles.buttonProfile}
             >
               <ProfileIcon className={styles.iconProfile} />
-              <p>Личный кабинет</p>
+              <p>{!userData ? 'Личный кабинет' : userData.firstName}</p>
             </Button>
           </NavLink>
 

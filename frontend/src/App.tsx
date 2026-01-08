@@ -18,6 +18,8 @@ import { Profile } from "./pages/profile/profile";
 import { ProtectedRoute } from "./components/protected-route/potected-route";
 import type { AppDispatch } from "./services/store";
 import { authChecked, getUserData } from "./services/slices/userSlice";
+import { Subject } from "./pages/subject/subject";
+import { Material } from "./pages/material/material";
 
 const App = () => {
   const theme: TTheme = useSelector(selectTheme);
@@ -51,6 +53,8 @@ const App = () => {
         <Route path="/materials" element={<Materials />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/contacts" element={<ContactsPage />} />
+        <Route path="/subject/:subjectId" element={<Subject />} />
+        <Route path="/material/:materialId" element={<Material />} />
         <Route
           path="/auth"
           element={

@@ -4,6 +4,7 @@ import { ContentWrapper } from "../../components/contentWrapper/contentWrapper";
 import { BookIcon, ClockIcon } from "../../components/icons/icons";
 import { getSubjectClass, materials } from "../../constants/constants";
 import styles from "./materials.module.css";
+import { NavLink } from "react-router-dom";
 
 export const Materials = () => {
   const [showAll, setShowAll] = useState(false);
@@ -45,10 +46,12 @@ export const Materials = () => {
                   <ClockIcon className={styles.clockIcon} />
                   {item.timeToRead ? `${item.timeToRead} мин` : item.format}
                 </span>
-                <Button className={styles.button}>
-                  Читать
-                  <BookIcon className={styles.bookIcon} />
-                </Button>
+                <NavLink to={`/material/${item.id}`}>
+                  <Button className={styles.button}>
+                    Читать
+                    <BookIcon className={styles.bookIcon} />
+                  </Button>
+                </NavLink>
               </div>
             </article>
           </li>

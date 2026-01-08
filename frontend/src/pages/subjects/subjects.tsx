@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Button from "../../components/button/button";
 import { ContentWrapper } from "../../components/contentWrapper/contentWrapper";
 import { ArrowIcon, MarkerIcon } from "../../components/icons/icons";
@@ -33,10 +34,12 @@ export const Subjects = () => {
                   <p className={styles.price}>{item.price} ₽/час</p>
                   <p className={styles.plate}>Индивидуально</p>
                 </div>
-                <Button className={styles.button}>
-                  <span>Подробнее</span>
-                  <ArrowIcon className={styles.arrowIcon} />
-                </Button>
+                <NavLink to={`/subject/${item.id}`} className={styles.link}>
+                  <Button className={styles.button}>
+                    <span>Подробнее</span>
+                    <ArrowIcon className={styles.arrowIcon} />
+                  </Button>
+                </NavLink>
               </article>
             </li>
           );

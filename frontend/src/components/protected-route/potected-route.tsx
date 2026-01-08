@@ -8,29 +8,6 @@ type ProtectedRouteProps = {
   children: React.ReactElement;
 };
 
-// export const ProtectedRoute = ({
-//   onlyUnAuth,
-//   children,
-// }: ProtectedRouteProps) => {
-//   const { isAuthChecked, isAuthenticated } = useSelector(getUserSelectors);
-//   const location = useLocation();
-
-//   if (!isAuthChecked) {
-//     return <Preloader />;
-//   }
-
-//   if (onlyUnAuth && isAuthenticated) {
-//     const from = location.state?.from || { pathname: "/" };
-//     return <Navigate to={from} replace />;
-//   }
-
-//   if (!onlyUnAuth && !isAuthenticated) {
-//     return <Navigate to="/login" state={{ from: location }} replace />;
-//   }
-
-//   return children;
-// };
-
 export const ProtectedRoute = ({
   onlyUnAuth, // true для страниц, доступных только НЕавторизованным (логин, регистрация)
   children,

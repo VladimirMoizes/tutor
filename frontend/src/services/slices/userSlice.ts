@@ -132,6 +132,14 @@ export const userSlice = createSlice({
       state.getUserError = null;
       localStorage.removeItem("token");
     },
+    // Добавляем action для очистки ошибки регистрации
+    clearRegisterError: (state) => {
+      state.registerUserError = null;
+    },
+    // И для логина тоже можно добавить
+    clearLoginError: (state) => {
+      state.loginUserError = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -222,6 +230,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { authChecked, logout } = userSlice.actions;
+export const { authChecked, logout, clearLoginError, clearRegisterError } = userSlice.actions;
 export const { getUserSelectors } = userSlice.selectors;
 export default userSlice.reducer;

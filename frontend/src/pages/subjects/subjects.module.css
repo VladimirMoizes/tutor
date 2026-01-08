@@ -132,6 +132,10 @@
   font-size: clamp(0.8rem, 2vw, 0.9rem);
 }
 
+.link {
+  width: 100%;
+}
+
 .button {
   color: var(--text-color-constant);
   width: 100%;

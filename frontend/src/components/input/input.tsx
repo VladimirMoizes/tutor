@@ -4,7 +4,7 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: React.ReactNode;
   error?: React.ReactNode;
   containerClassName?: string;
-  mask?: "phone"; // ленивое включение маски телефона
+  mask?: "phone";
 };
 
 function mergeRefs<T>(...refs: Array<React.Ref<T> | undefined>) {
@@ -23,6 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     name,
     type = "text",
     label,
+    value,
     error,
     containerClassName,
     className,
@@ -66,7 +67,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     return formatted.length;
   }
 
-  // reset формы → чистим состояние и ставим курсор в начало
   useEffect(() => {
     if (mask !== "phone") return;
     const el = innerRef.current;
@@ -89,12 +89,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     const raw = e.target.value;
     const caret = el?.selectionStart ?? raw.length;
 
-    // сколько цифр слева от курсора в "сырой" строке
     const rawDigitsLeft = raw.slice(0, caret).replace(/\D/g, "").length;
 
     let digits = raw.replace(/\D/g, "");
 
-    // полная очистка
     if (digits.length === 0) {
       setPhoneMaskActive(false);
       setPhoneValue("");
@@ -107,7 +105,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       return;
     }
 
-    // решаем, активировать ли маску
     let activateNow = false;
     if (!phoneMaskActive) {
       const first = digits[0];
@@ -123,16 +120,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       }
     }
 
-    // если маска ещё не активна и активировать не надо — сырое поведение
     if (!phoneMaskActive && !activateNow) {
       setPhoneValue(raw);
       onChange?.(e);
       return;
     }
 
-    // ---- маска активна (или стала активной на этом вводе) ----
-    // поправка для курсора: если маска активировалась из-за первого '9',
-    // мы добавим лидирующую '7' → цифр слева стало на 1 больше.
     let caretDigitsLeft = rawDigitsLeft;
     if (
       activateNow &&
@@ -158,7 +151,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   }
 
   function handlePhoneKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    // Разрешаем служебные клавиши и сочетания (копировать/вставить и т.п.)
     const allowed = [
       "Backspace",
       "Delete",
@@ -172,23 +164,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     ];
     if (allowed.includes(e.key) || e.ctrlKey || e.metaKey || e.altKey) return;
 
-    // Блокируем буквы (латиница и кириллица)
     if (e.key.length === 1 && /[A-Za-zА-Яа-яЁё]/.test(e.key)) {
       e.preventDefault();
     }
   }
-
-  // const phoneProps =
-  //   mask === "phone"
-  //     ? {
-  //         value: phoneValue,
-  //         onChange: handlePhoneChange,
-  //         onKeyDown: handlePhoneKeyDown,
-  //         maxLength: 18 as number | undefined,
-  //         inputMode:
-  //           "tel" as React.HTMLAttributes<HTMLInputElement>["inputMode"],
-  //       }
-  //     : {};
 
   const phoneProps =
     mask === "phone"
@@ -197,11 +176,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           onChange: handlePhoneChange,
           onKeyDown: handlePhoneKeyDown,
           maxLength: 18 as number | undefined,
-          inputMode: "tel" as React.HTMLAttributes<HTMLInputElement>["inputMode"],
+          inputMode:
+            "tel" as React.HTMLAttributes<HTMLInputElement>["inputMode"],
         }
-      : {
-          onChange: onChange, // ← ВАЖНО: передаём оригинальный onChange для обычных инпутов
-        };
+      : {};
 
   return (
     <div className={containerClassName}>
@@ -214,10 +192,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           type={type}
           ref={setRefs}
           className={className}
+          value={mask === "phone" ? phoneValue : value}
+          onChange={mask === "phone" ? handlePhoneChange : onChange}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
-          {...rest}
           {...phoneProps}
+          {...rest}
         />
         {isCheck && label && <label htmlFor={inputId}>{label}</label>}
       </div>
